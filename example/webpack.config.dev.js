@@ -24,8 +24,7 @@ export default {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'), // Tells React to build in either dev or prod modes. https://facebook.github.io/react/downloads.html (See bottom)
       "process.env.API_BASE_URL": JSON.stringify('http://localhost:8000/api/v1'),
-      "process.env.SPOTIFY_CLIENT_ID": JSON.stringify('953ba9952b864f1f8fb47952bb5c0113'),
-      "process.env.SPOTIFY_CLIENT_SECRET": JSON.stringify('216fa34783d244fe800da52b984bfc57'),
+      "process.env.WEATHER_APP_ID": JSON.stringify('2fab0b5bf640582490387feef25996c4'),
       __DEV__: true
     }),
     new webpack.HotModuleReplacementPlugin(),
