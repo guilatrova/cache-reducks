@@ -19,7 +19,9 @@ const styles = theme => ({
 
 class WeatherPage extends React.Component {
     static propTypes = {
-        onSearch: PropTypes.func.isRequired
+        onSearch: PropTypes.func.isRequired,
+        history: PropTypes.array.isRequired,
+        classes: PropTypes.object.isRequired
     }
 
     render() {
