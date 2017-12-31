@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 
 import AppBody from './AppBody';
+import WeatherPage from '../../weather/containers/WeatherPage';
 
-// Stubbed components
-const HomePage = () => <p>Home</p>;
 const NotFoundPage = () => <p>Not found</p>;
 
 // This is a class-based component because the current
@@ -14,14 +13,17 @@ const NotFoundPage = () => <p>Not found</p>;
 // component at the top-level.
 
 class App extends React.Component {
+	static propTypes = {
+		children: PropTypes.element
+	};
+
 	render() {
 		return (
 			<div>
 				<AppBody>
 					<Switch>
 
-						<Route exact path="/" component={HomePage} />
-						<Route path="/login" component={HomePage} />
+						<Route exact path="/" component={WeatherPage} />
 						<Route component={NotFoundPage} />
 
 					</Switch>
@@ -30,9 +32,5 @@ class App extends React.Component {
 		);
 	}
 }
-
-App.propTypes = {
-	children: PropTypes.element
-};
 
 export default App;
