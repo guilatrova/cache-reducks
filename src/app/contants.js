@@ -1,3 +1,4 @@
 export const drawerWidth = 240;
 export const anchor = "left";
-export const title = "Latrova React Slingshot + Material UI";
+export const title = "Cache Re-ducks with Spotify API";
+export const cacheTimeoutMultiplier = 1000 * 60; //Convert to minutes
