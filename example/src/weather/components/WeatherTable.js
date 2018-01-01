@@ -7,6 +7,15 @@ import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Ta
 import IconButton from 'material-ui/IconButton';
 import RefreshIcon from 'material-ui-icons/Refresh';
 
+const styles = ({
+    green: {
+        color: '#2ECC40'
+    },
+    red: {
+        color: '#FF4136'
+    }
+});
+
 const WeatherTable = ({ classes, data, onRetry }) => {
     const rows = data.map(entry => {
         return (
@@ -19,7 +28,11 @@ const WeatherTable = ({ classes, data, onRetry }) => {
                 </TableCell>
                 <TableCell numeric>{entry.temp}</TableCell>
                 <TableCell numeric>{moment(entry.time).format('HH:MM:SS')}</TableCell>
-                <TableCell>{entry.cached ? 'Yes' : 'No'}</TableCell>
+                <TableCell>
+                    <span className={entry.cached ? classes.green : classes.red}>
+                        {entry.cached ? 'Yes' : 'No'}
+                    </span>
+                </TableCell>
             </TableRow>
         );
     });
@@ -47,4 +60,4 @@ WeatherTable.propTypes = {
     onRetry: PropTypes.func.isRequired
 };
 
-export default withStyles()(WeatherTable);
+export default withStyles(styles)(WeatherTable);
