@@ -44,6 +44,7 @@ class WeatherPage extends React.Component {
         const { classes, history, onSearch, onSearchWithCache } = this.props;
         const { enableCache, timeout } = this.state;
         const searchFunc = enableCache ? onSearchWithCache : onSearch;
+        const handleRetry = (location) => searchFunc(location, timeout);
 
         return (
             <div>
@@ -57,7 +58,7 @@ class WeatherPage extends React.Component {
                 <WeatherSearch onSubmit={searchFunc} />
 
                 <Paper className={classes.paper}>
-                    <WeatherTable data={history} />
+                    <WeatherTable data={history} onRetry={handleRetry} />
                 </Paper>
             </div>
         );
