@@ -23,6 +23,14 @@ const cacheOperation = (operation, timeout) => (dispatch, getState) => {
         operation.onGetResponse = (data) => {
             return data;
         };
+        const originalGetSucceedData = operation.getSucceedData;
+        operation.getSucceedData = (raw) => {
+            const data = originalGetSucceedData(raw);
+            return {
+                ...data,
+                cached: true
+            };
+        };
     }
 
     return operation.dispatch()(dispatch, getState);

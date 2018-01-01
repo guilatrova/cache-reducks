@@ -13,7 +13,7 @@ class FetchWeatherOperation extends Operation {
         dispatch(requestAction(this.location));
     }
 
-    getSucceedData = (raw) => raw.main.temp;
+    getSucceedData = (raw) => ({ temp: raw.main.temp });
 
     onSucceed(dispatch, receiveAction, data) {
         return dispatch(receiveAction('success', this.location, data));

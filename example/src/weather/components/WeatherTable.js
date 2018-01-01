@@ -12,6 +12,7 @@ const WeatherTable = ({ classes, data }) => {
                 <TableCell>{entry.location}</TableCell>
                 <TableCell numeric>{entry.temp}</TableCell>
                 <TableCell numeric>{moment(entry.time).format('HH:MM:SS')}</TableCell>
+                <TableCell>{entry.cached ? 'True' : 'False'}</TableCell>
             </TableRow>
         );
     });
@@ -23,6 +24,7 @@ const WeatherTable = ({ classes, data }) => {
                     <TableCell>Location</TableCell>
                     <TableCell numeric>Temp</TableCell>
                     <TableCell numeric>Time</TableCell>
+                    <TableCell>Cached result?</TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>

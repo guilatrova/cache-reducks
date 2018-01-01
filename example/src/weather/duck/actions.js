@@ -15,7 +15,8 @@ const receiveFetchWeather = (result, location, data) => {
             result,
             entry: {
                 location,
-                temp: data,
+                temp: data.temp,
+                cached: data.cached || false,
                 time
             }
         };
@@ -28,6 +29,7 @@ const receiveFetchWeather = (result, location, data) => {
         entry: {
             location,
             temp: null,
+            cached: false,
             time
         }
     };
