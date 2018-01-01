@@ -27,7 +27,7 @@ const WeatherTable = ({ classes, data, onRetry }) => {
                     {entry.location}
                 </TableCell>
                 <TableCell numeric>{entry.temp}</TableCell>
-                <TableCell numeric>{moment(entry.time).format('HH:MM:SS')}</TableCell>
+                <TableCell numeric>{moment(entry.time).format('HH:mm:ss')}</TableCell>
                 <TableCell>
                     <span className={entry.cached ? classes.green : classes.red}>
                         {entry.cached ? 'Yes' : 'No'}
