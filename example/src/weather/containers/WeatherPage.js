@@ -21,6 +21,7 @@ const styles = theme => ({
 class WeatherPage extends React.Component {
     static propTypes = {
         onSearch: PropTypes.func.isRequired,
+        onSearchWithCache: PropTypes.func.isRequired,
         history: PropTypes.array.isRequired,
         classes: PropTypes.object.isRequired
     }
@@ -40,18 +41,20 @@ class WeatherPage extends React.Component {
     }
 
     render() {
-        const { classes, history, onSearch } = this.props;
+        const { classes, history, onSearch, onSearchWithCache } = this.props;
+        const { enableCache, timeout } = this.state;
+        const searchFunc = enableCache ? onSearchWithCache : onSearch;
 
         return (
             <div>
                 <CacheConfig 
-                    enableCache={this.state.enableCache}
+                    enableCache={enableCache}
                     onEnableCacheChange={enableCache => this.setState({ enableCache })}
-                    timeout={this.state.timeout}
+                    timeout={timeout}
                     onTimeoutChange={this.handleTimeoutChange}
                 />
 
-                <WeatherSearch onSubmit={onSearch} />
+                <WeatherSearch onSubmit={searchFunc} />
 
                 <Paper className={classes.paper}>
                     <WeatherTable data={history} />
@@ -69,7 +72,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onSearchCache: (location) => dispatch(operations.fetchWeatherWithCache(location, 2)),
+        onSearchWithCache: (location, timeout) => dispatch(operations.fetchWeatherWithCache(location, timeout)),
         onSearch: (location) => dispatch(operations.fetchWeatherWithoutCache(location))
     };
 };
