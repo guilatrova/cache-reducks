@@ -46,6 +46,7 @@ class WeatherSearch extends React.Component {
                     <Button raised color="primary" 
                         onClick={this.handleSubmit} 
                         className={this.props.classes.button}
+                        disabled={!this.state.value}
                     >
                         Search
                     </Button>
