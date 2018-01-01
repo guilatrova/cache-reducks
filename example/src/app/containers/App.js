@@ -25,7 +25,7 @@ class App extends React.Component {
 					<Switch>
 
 						<Route exact path="/" component={WeatherPage} />
-						<Route exact path="/author" component={AuthorPage} />
+						<Route exact path="/about" component={AuthorPage} />
 						<Route component={NotFoundPage} />
 
 					</Switch>

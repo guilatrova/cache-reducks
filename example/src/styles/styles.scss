@@ -12,6 +12,10 @@ a {
   text-decoration: none;
 }
 
+a:visited {
+  color: inherit;
+}
+
 * {
   font-family: 'Roboto', sans-serif;
 }

@@ -46,7 +46,7 @@ const AppDrawer = ({ classes, theme, open, handleDrawerClose }) => {
             <Divider />
             <List className={classes.list}>
                 <DrawerItem icon={<LabelIcon />} text="Home" to="/" />
-                <DrawerItem icon={<LabelIcon />} text="Author" to="/author" />
+                <DrawerItem icon={<LabelIcon />} text="About" to="/about" />
             </List>
           </div>
       </Drawer>        

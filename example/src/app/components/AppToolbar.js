@@ -8,8 +8,10 @@ import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import MenuIcon from 'material-ui-icons/Menu';
 import IconButton from 'material-ui/IconButton';
+import PersonPinIcon from 'material-ui-icons/PersonPin';
 
 import { drawerWidth, anchor, title } from '../contants';
+import GithubIcon from '../../icons/Github';
 
 const styles = theme => ({
     appBar: {
@@ -31,7 +33,10 @@ const styles = theme => ({
 	},
 	'appBarShift-right': {
 		marginRight: drawerWidth,
-	},
+    },
+    flex: {
+        flex: 1,
+    },
     menuButton: {
       marginLeft: 12,
       marginRight: 20,
@@ -40,6 +45,8 @@ const styles = theme => ({
       display: 'none',
     },
 });
+
+const openLink = (link) => () => window.open(link, "_blank");
 
 const AppToolbar = ({ classes, open, handleDrawerOpen }) => {
     return (
@@ -59,9 +66,17 @@ const AppToolbar = ({ classes, open, handleDrawerOpen }) => {
                 <MenuIcon />
             </IconButton>
 
-            <Typography type="title" color="inherit" noWrap>
+            <Typography type="title" color="inherit" noWrap className={classes.flex}>
                 {title}
             </Typography>
+
+            <IconButton color="contrast" onClick={openLink("https://github.com/guilatrova/cache-reducks")}>
+                <GithubIcon />
+            </IconButton>
+
+            <IconButton color="contrast" onClick={openLink("https://www.linkedin.com/in/guilhermelatrova")}>
+                <PersonPinIcon />
+            </IconButton>
         </Toolbar>
     </AppBar>);
 };

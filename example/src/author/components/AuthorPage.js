@@ -11,7 +11,7 @@ const AuthorPage = () => {
 
             <Typography>
                 To know more see <a href="https://github.com/guilatrova/cache-reducks">repository</a> and take 
-                a look into <a href="latrovacommits.com">my blog</a> :)
+                a look into <a href="http://www.latrovacommits.com">my blog</a> :)
             </Typography>
         </div>
     );
