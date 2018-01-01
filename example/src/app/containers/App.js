@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import AppBody from './AppBody';
 import WeatherPage from '../../weather/containers/WeatherPage';
+import AuthorPage from '../../author/components/AuthorPage';
 
 const NotFoundPage = () => <p>Not found</p>;
 
@@ -24,6 +25,7 @@ class App extends React.Component {
 					<Switch>
 
 						<Route exact path="/" component={WeatherPage} />
+						<Route exact path="/author" component={AuthorPage} />
 						<Route component={NotFoundPage} />
 
 					</Switch>
