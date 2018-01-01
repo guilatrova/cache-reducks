@@ -1,4 +1,4 @@
-import { operations, selectors } from '../core/duck';
+import { operations, selectors } from '../core-duck/duck';
 
 const cacheTimeoutMultiplier = 1000 * 60; //Convert to minutes
 

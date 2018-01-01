@@ -149,7 +149,7 @@ A cache MUST...
 So you start with following function:
 
 ```
-import { operations, selectors } from '../core/duck';
+import { operations, selectors } from '../core-duck/duck';
 
 const cacheTimeoutMultiplier = 1000 * 60; //Convert to minutes
 
@@ -217,9 +217,9 @@ There's no need to explicitly cache it in our operation, our cache func handles 
 
 ### Why caching?
 
-This may change from app to app, only you can say if it's really needed. Let's imagine that your app lists some patients, if you perform a `GET` request to `/patients` at **15:00:00**, and at **15:05:30** you perform it again just because your user come back to this screen from another one. **What's the chances to something have changed in just 05:30 minutes?** Of course, your bussiness rules and environment will decide this.
+This may change from app to app, only you can say if it's really needed. Let's imagine that your app lists some patients, if you perform a `GET` request to `/patients` at **15:00:00**, and at **15:05:30** you perform it again just because your user come back to this screen from another one. **What's the chances to something have changed in just 05:30 minutes?** If nothing has changed, your user waits for nothing and your server works for nothing. Of course, your bussiness rules and environment will give a final word on this.
 
-For such reason, I propose something highly customizable and easy to turn on or off. Maybe you can't even think about caching patients (imagining same app), but there's still a medications stock that're only update once a few hours. Maybe you can cache it for 15 minutes? Who knows? It' up to you. Your user doesn't need to be stuck to your predefined timeout, you can always set a refresh button to trigger same operation passing a 0 timeout param.
+For such reason, I propose something highly customizable and easy to turn on or off. Maybe you can't even think about caching patients, but there's still a medications stock list that are only updated once a few hours. Maybe you can cache it for 15 minutes? Who knows? It' up to you. Remember your user doesn't need to be stuck to your predefined timeout, you can always set a refresh button to trigger same operation passing a 0 timeout param.
 
 # Example app
 
@@ -227,8 +227,8 @@ You can check example folder with an app built using material-ui + cache re-duck
 
 App basically retrieves a temperature from a location using [OpenWeather](https://openweathermap.org/) api, caching requests to same location in a lenght of 2 minutes. Cache can be disabled and timeout changed by user, also it was customized to extend some functions and meet some needs for this project.
 
-## Conclusion
+# Conclusion
 
-Of course this project still need to grow, also I could improve by adding tests and more. Sadly I'm kind out of time lately, so I tried hard to create at least a good example showing how to implement such proposal. Always open to suggestions, feel free to contribute :) . 
+Of course this project still need to grow, also I could improve by adding tests and more. Sadly I'm kind out of time lately, so I tried hard to create at least a good example showing how to implement such proposal. I'm always open to suggestions, feel free to contribute :) . 
 
 I thank God for the opportunity to showcase my proposal. Hope someone find it useful.
