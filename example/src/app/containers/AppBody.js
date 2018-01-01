@@ -69,14 +69,15 @@ class AppBody extends React.Component {
     
     render() {
         const { classes, children } = this.props;
+        const { open } = this.state;
         
         return (
             <div className={classes.root}>
                 <div className={classes.appFrame}>
                 
-                    <AppToolbar open={this.state.open} handleDrawerOpen={this.handleDrawerOpen} />
+                    <AppToolbar open={open} handleDrawerOpen={this.handleDrawerOpen} />
                     
-                    <AppDrawer open={this.state.open} handleDrawerClose={this.handleDrawerClose} />
+                    <AppDrawer open={open} handleDrawerClose={this.handleDrawerClose} />
                     
                     <main 
                         className={classNames(classes.content, classes[`content-${anchor}`], {

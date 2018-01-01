@@ -10,7 +10,7 @@ import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
 import ChevronRightIcon from 'material-ui-icons/ChevronRight';
 import { withStyles } from 'material-ui/styles';
 
-import { drawerWidth } from '../contants';
+import { drawerWidth, anchor } from '../contants';
 import DrawerItem from './DrawerItem';
 
 const styles = theme => ({
@@ -31,25 +31,27 @@ const styles = theme => ({
 const AppDrawer = ({ classes, theme, open, handleDrawerClose }) => {
     return (
         <Drawer
-          type="persistent"
-          classes={{ paper: classes.drawerPaper, }}
-          open={open} >
+            type="persistent"
+            classes={{ paper: classes.drawerPaper }}
+            anchor={anchor}
+            open={open} >
         
-          <div className={classes.drawerInner}>
+            <div className={classes.drawerInner}>
 
-            <div className={classes.drawerHeader}>
-                <IconButton onClick={handleDrawerClose}>
-                    {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-                </IconButton>
+                <div className={classes.drawerHeader}>
+                    <IconButton onClick={handleDrawerClose}>
+                        {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                    </IconButton>
+                </div>
+
+                <Divider />
+                
+                <List className={classes.list}>
+                    <DrawerItem icon={<LabelIcon />} text="Home" to="/" />
+                    <DrawerItem icon={<LabelIcon />} text="About" to="/about" />
+                </List>
             </div>
-
-            <Divider />
-            <List className={classes.list}>
-                <DrawerItem icon={<LabelIcon />} text="Home" to="/" />
-                <DrawerItem icon={<LabelIcon />} text="About" to="/about" />
-            </List>
-          </div>
-      </Drawer>        
+        </Drawer>        
     );
 };
 
