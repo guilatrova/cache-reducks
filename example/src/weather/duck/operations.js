@@ -1,5 +1,6 @@
 import actions from './actions';
 import { Operation } from '../../services/operations';
+import cache from '../../services/cacheOperations';
 import handleError from '../../services/genericErrorHandler';
 
 class FetchWeatherOperation extends Operation {
@@ -28,7 +29,7 @@ class FetchWeatherOperation extends Operation {
     }
 }
 
-const fetchWeatherWithCache = (location, timeout) => new FetchWeatherOperation(location).dispatch();
+const fetchWeatherWithCache = (location, timeout) => cache(new FetchWeatherOperation(location), timeout);
 const fetchWeatherWithoutCache = (location) => new FetchWeatherOperation(location).dispatch();
 
 export default {

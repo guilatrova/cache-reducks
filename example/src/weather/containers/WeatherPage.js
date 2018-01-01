@@ -7,6 +7,7 @@ import { withStyles } from 'material-ui/styles';
 
 import WeatherSearch from '../components/WeatherSearch';
 import WeatherTable from '../components/WeatherTable';
+import CacheConfig from '../components/CacheConfig';
 import { operations, selectors } from '../duck';
 
 const styles = theme => ({
@@ -24,11 +25,32 @@ class WeatherPage extends React.Component {
         classes: PropTypes.object.isRequired
     }
 
+    state = {
+        enableCache: true,
+        timeout: 2        
+    }
+
+    handleTimeoutChange = (timeout) => {
+        if (isNaN(timeout)) {
+            this.setState({ timeout: 2 });
+        }
+        else {
+            this.setState({ timeout: Number(timeout) });
+        }
+    }
+
     render() {
         const { classes, history, onSearch } = this.props;
 
         return (
             <div>
+                <CacheConfig 
+                    enableCache={this.state.enableCache}
+                    onEnableCacheChange={enableCache => this.setState({ enableCache })}
+                    timeout={this.state.timeout}
+                    onTimeoutChange={this.handleTimeoutChange}
+                />
+
                 <WeatherSearch onSubmit={onSearch} />
 
                 <Paper className={classes.paper}>
@@ -47,7 +69,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onSearch: (location) => dispatch(operations.fetchWeatherWithCache(location))
+        onSearchCache: (location) => dispatch(operations.fetchWeatherWithCache(location, 2)),
+        onSearch: (location) => dispatch(operations.fetchWeatherWithoutCache(location))
     };
 };
 

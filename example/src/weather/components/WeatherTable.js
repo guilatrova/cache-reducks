@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import moment from 'moment';
 import { withStyles } from 'material-ui/styles';
 import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
 
@@ -10,7 +11,7 @@ const WeatherTable = ({ classes, data }) => {
             <TableRow key={entry.time}>
                 <TableCell>{entry.location}</TableCell>
                 <TableCell numeric>{entry.temp}</TableCell>
-                <TableCell numeric>{entry.time}</TableCell>
+                <TableCell numeric>{moment(entry.time).format('HH:MM:SS')}</TableCell>
             </TableRow>
         );
     });
