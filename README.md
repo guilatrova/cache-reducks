@@ -1,12 +1,14 @@
 # Extending re-ducks proposal
 
+[DEMO](https://cache-reducks.herokuapp.com/).
+
 Before starting you may want to check both [ducks](https://github.com/erikras/ducks-modular-redux) and [re-ducks](https://github.com/alexnm/re-ducks) proposals.
 Although both proposals suits me very well and improved a lot my workplace, I was still missing some more definitions about how to handle operations properly. Also, while handling such operations (which were basically API calls most of time) I noticed that my apps was repeating the same API request in a short time.
 
-I noticed I always follows same patterns:
+Not just that, but I also noticed I was always following same steps:
 
 - Perform a request to notify my app that some background task is running (fetch).
-- When request finishes notify my app result (success).
+- When request finishes notify my app about result (success).
 - If my request fails get error message and notify app about this issue (fail).
 
 So, I would like to extend both original ideas (which are great) to support Operation and Cached Responses.

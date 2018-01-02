@@ -23,7 +23,7 @@ export default {
   plugins: [
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'), // Tells React to build in either dev or prod modes. https://facebook.github.io/react/downloads.html (See bottom)
-      "process.env.API_BASE_URL": JSON.stringify('http://api.openweathermap.org/data/2.5/weather'),
+      "process.env.API_BASE_URL": JSON.stringify('https://api.openweathermap.org/data/2.5/weather'),
       "process.env.WEATHER_APP_ID": JSON.stringify('2fab0b5bf640582490387feef25996c4'),
       __DEV__: true
     }),
