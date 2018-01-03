@@ -1,5 +1,6 @@
 import { operations, selectors } from '../core-duck/duck';
 
+const cacheResponse = operations.cacheResponse; //Avoid mess up with operation object
 const cacheTimeoutMultiplier = 1000 * 60; //Convert to minutes
 
 const cacheOperation = (operation, timeout) => (dispatch, getState) => {

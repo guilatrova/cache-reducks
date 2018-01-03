@@ -1,7 +1,7 @@
 { 
     "name": "cache-reducks", 
     "version": "0.1.0", 
-    "description": "Proposal for caching operations using re-ducks alongside OpenWeather API", 
+    "description": "Proposal for caching operations using re-ducks", 
     "engines": { 
       "node": "6.11.1", 
       "npm": ">=3" 
