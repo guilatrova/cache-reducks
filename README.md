@@ -3,7 +3,7 @@
 [DEMO](https://cache-reducks.herokuapp.com/).
 
 Before starting you may want to check both [ducks](https://github.com/erikras/ducks-modular-redux) and [re-ducks](https://github.com/alexnm/re-ducks) proposals.
-Although both proposals suits me very well and improved a lot my workplace, I was still missing some more definitions about how to handle operations properly. Also, while handling such operations (which were basically API calls most of time) I noticed that my apps was repeating the same API request in a short time.
+Although both proposals suits me very well and improved a lot my workflow, I was still missing some more definitions about how to handle operations properly. Also, while handling such operations (which were basically API calls most of time) I noticed that my apps was repeating the same API request in a short time.
 
 Not just that, but I also noticed I was always following same steps:
 
